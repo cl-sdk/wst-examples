@@ -1,0 +1,53 @@
+:base = http://localhost:3000
+
+:code = 7o044QyIzD
+
+#
+# Health
+GET :base/health
+
+#
+# Create short URL (form-urlencoded)
+POST :base/api/v1/links
+Content-Type: application/x-www-form-urlencoded
+
+url=https://example.com/docs/wst
+
+#
+# Create short URL (JSON)
+POST :base/api/v1/links
+Content-Type: application/json
+
+{"url":"https://common-lisp.net"}
+
+#
+# List all short URLs as json
+GET :base/api/v1/links
+Accept: application/json
+
+# List all short URLs as csv
+GET :base/api/v1/links
+Accept: text/csv
+
+#
+# Inspect one short URL by code
+GET :base/api/v1/links/:code
+
+#
+# Resolve short URL by code (redirect)
+GET :base/:code
+
+#
+# Delete one short URL by code
+DELETE :base/api/v1/links/:code
+
+#
+# Invalid create request (missing url)
+POST :base/api/v1/links
+Content-Type: application/json
+
+{"target":"https://example.com"}
+
+#
+# Fallback any-route
+GET :base/does-not-exist

@@ -1,12 +1,21 @@
-ENV?=development
+]ENV?=development
 
 ## run through roswell
-LISP?=sbcl --sysinit ./.sbclrc
+LISP?=sbcl --sysinit $(PWD)/.sbclrc
 
-LISPFLAGS=--non-interactive
+LISPFLAGS=--non-interactive --quit
 
-.PHONY: run
-run:
-	ENV=$(ENV) \
+PROGRAM?=
+
+_build:
 	$(LISP) \
-	$(LISPFLAGS) --quit --eval "(print \"ok\")"
+	$(LISPFLAGS) \
+	--eval '(load "./.sbclrc")' \
+	--eval '(asdf:operate (quote asdf:program-op) :wst.example.url-shortener.app)' \
+	--eval '(uiop:quit)'
+
+.PHONY: url-shortener
+url-shortener:
+	PROGRAM=$@ \
+	make _build
+

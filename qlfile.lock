@@ -2,3 +2,27 @@
  (:class qlot/source/dist:source-dist
   :initargs (:distribution "https://beta.quicklisp.org/dist/quicklisp.txt" :%version :latest)
   :version "2026-01-01"))
+("wst" .
+ (:class qlot/source/github:source-github
+  :initargs (:repos "cl-sdk/wst" :ref nil :branch nil :tag "0.4.2")
+  :version "github-f73ec9deb915eab89af9268ba00ddadeebaa607e"))
+("io.github.cl-sdk.json" .
+ (:class qlot/source/github:source-github
+  :initargs (:repos "cl-sdk/io.github.cl-sdk.json" :ref nil :branch "main" :tag nil)
+  :version "github-f1d632e1f629409e650009567a2d35e4bd0dc842"))
+("meta-definitions" .
+ (:class qlot/source/github:source-github
+  :initargs (:repos "cl-sdk/meta-definitions" :ref nil :branch "main" :tag nil)
+  :version "github-41e5c29f68181d0d6eee0a627b94b70ab2402019"))
+("cl-hash-util" .
+ (:class qlot/source/github:source-github
+  :initargs (:repos "orthecreedence/cl-hash-util" :ref nil :branch "master" :tag nil)
+  :version "github-7f88cb7579b2af8c21022554f46dddd6ce6a5fc2"))
+("serapeum" .
+ (:class qlot/source/github:source-github
+  :initargs (:repos "ruricolist/serapeum" :ref nil :branch "master" :tag nil)
+  :version "github-c4dcbb6e48e9b713ba66fdee480a84384ef3dac4"))
+("io.github.cl-sdk.csv" .
+ (:class qlot/source/github:source-github
+  :initargs (:repos "cl-sdk/io.github.cl-sdk.csv" :ref nil :branch nil :tag nil)
+  :version "github-c141b3731caf16d8da5418b11f7be2065f56ac82"))

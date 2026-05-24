@@ -24,13 +24,15 @@
               pkgs.zlib
               pkgs.git
               pkgs.sbcl
+              pkgs.libev
             ];
 
             shellHook = ''
             export LD_LIBRARY_PATH=${pkgs.lib.makeLibraryPath [
-						pkgs.sqlite
+						                                  pkgs.sqlite
                                               pkgs.openssl_3
                                               pkgs.zlib
+                                              pkgs.libev
                                             ]}
 
             export INIT_FILE="$PWD/.sbclrc"
